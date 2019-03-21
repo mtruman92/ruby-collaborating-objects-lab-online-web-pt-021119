@@ -31,12 +31,12 @@ class Artist
     self.all.detect {|artist| artist.name == name} || Artist.new(name)
 end
 
-  def self.find_by_name(name)
+  def self.find(name)
     self.all.find {|artist| artist.name == name}
   end
 
    
-  def self.create_by_name(name)
+  def self.create(name)
     #Artist.new(name) - need to find what code would work with this to save
     self.new(name).tap {|artist| artist.save}
   end
