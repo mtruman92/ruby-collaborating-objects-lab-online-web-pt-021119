@@ -41,7 +41,6 @@ class Artist
 
    
   def self.create(name)
-    #Artist.new(name) - need to find what code would work with this to save
     self.new(name).tap {|artist| artist.save}
   end
   
