@@ -35,16 +35,11 @@ end
     self.all.detect{|a| a.name == name}
   end
 
-    def self.create(name)
-    new_var = self.new(name)
-    new_var.save
-    return new_var
-  end
-  
-  #def self.create_by_name(name)
+   
+  def self.create_by_name(name)
     #Artist.new(name) - need to find what code would work with this to save
-    #self.new(name).tap {|artist| artist.save}
- # end
+    self.new(name).tap {|artist| artist.save}
+  end
   
   def print_songs
     songs.each {|song| puts song.name}
