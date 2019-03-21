@@ -1,32 +1,26 @@
-class Song 
-  
- attr_accessor :name, :artist
- 
-  def initialize(name)
+class Song
+
+ attr_accessor :artist, :name
+
+ def initialize(name)
     @name = name
-  end
-  
- 
-  #def self.new_by_filename(file_name)
-   # split_name = file_name.split(" - ")
-    #song = self.new(split_name[1])
-    #artist = Artist.new(split_name[0])
-   # song.artist = artist
-    #artist.songs << song
-    #song
- #end
- 
-  def artist_name=(name)
-    self.artist = Artist.find_or_create_by_name(name)
+ end
+
+ def self.new_by_filename(filename)
+    song = filename.split(" - ")[1]
+    newSong = self.new(song)
+    artist = filename.split(" - ")[0]
+    newSong.artist_name = artist
+    newSong
+ end
+
+ def artist_name=(artistName)
+    self.artist = Artist.find_or_create_by_name(artistName)
     artist.add_song(self)
-  end 
-  
-   def self.new_by_filename(file_name)
-    file = file_name.chomp(".mp3").split(" - ")
-    song = self.new(file[1])
-    song.artist_name=(file[0])
-    song
   end
+
+
+end 
 
 
  
